@@ -1,7 +1,9 @@
-<body>
-  <h1>Welcome to my guestbook</h1>
-  {{> guestBook}}
-</body>
+<template name="layout">
+  <body>
+    <h1>Welcome to my guestbook</h1>
+    {{> yield }}
+  </body>
+</template>
 
 <template name="guestBook">
   <div class='col-xs-3'>
@@ -17,7 +19,15 @@
           <button type="submit" class="btn btn-primary">Post Message</button>
     </form>
     {{#each messages}}
-      <p><strong>{{ name }}</strong>: {{ message }} - {{ createdOn }}</p>
+      <p><a href="{{pathFor route='message.show'}}"><strong>{{ name }}</strong>: {{ message }} - {{ createdOn }}</a></p>
     {{/each}}
   </div>
+</template>
+
+<template name="about">
+  <p>This is an app created in CSCI16 over winter study.</p>
+</template>
+
+<template name="message">
+  {{name}}: {{message}}
 </template>
