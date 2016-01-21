@@ -20,7 +20,8 @@ Router.route('/messages/:_id', function() {
   },
   {
     name: 'message.show'
-});
+  }
+);
 
 if (Meteor.isClient) {
     Meteor.subscribe("messages");
